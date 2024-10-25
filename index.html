@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video src="assets/Portfolio final bg.mp4" type="video/mp4" width="1920" height="1080" loop autoplay muted playsinline preload="auto">
+        Sorry, your browser doesn't support HTML5 video tag.
+    </video>
+    <div class="container">
+        <div class="graphics" onclick="openGraphics()">Graphics</div>
+        <div class="tab" onclick="navigateTo()">UX Case Studies</div>
+        <!-- SVG for Desktop -->
+        <div class="svg-wrapper1 desktop-svg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1357.713 771.042">
+              <path id="Path_10" data-name="Path 10" d="M299.965,65.039l.189.2h996.589c32.662,0,59.47,28.612,59.47,63.663V706.317c0,35.05-26.808,63.663-59.47,63.663H59.975C27.3,769.979.5,741.368.5,706.317L.8,64.6h0C.8,29.545,27.306.938,59.975.938H240.04Z" transform="translate(0.5 0.063)" fill="rgba(142, 190, 255, 0.2)" stroke="#fff" stroke-width="2" style="isolation: isolate"/>
+            </svg>
+          </div>
+
+        <div class="svg-wrapper desktop-svg">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1357.713 771.042">
+              <path id="Path_10" data-name="Path 10" d="M299.965,65.039l.189.2h996.589c32.662,0,59.47,28.612,59.47,63.663V706.317c0,35.05-26.808,63.663-59.47,63.663H59.975C27.3,769.979.5,741.368.5,706.317L.8,64.6h0C.8,29.545,27.306.938,59.975.938H240.04Z" transform="translate(0.5 0.063)" fill="rgba(142, 190, 255, 0.2)" stroke="#fff" stroke-width="2" style="isolation: isolate"/>
+            </svg>
+            <div class="content">
+              <img class="portfolio" src="assets/Path 17@2x.png" alt="portfolio">
+            </div>
+          </div>
+
+        <!-- SVG for mobile --> 
+         
+        <div class="svg-wrapper1 mobile-svg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="288.394" height="405.306" viewBox="0 0 288.394 405.306">
+            <path id="Path_10" data-name="Path 10" d="M168.7,121.222l.119.127h80.7c20.527,0,37.374,17.981,37.374,40.009V444.234c0,22.027-16.848,40.009-37.374,40.009H37.877C17.344,484.243.5,466.262.5,444.234L.689,120.947h0c0-22.03,16.658-40.009,37.189-40.009H131.04Z" transform="translate(0.5 -79.938)" fill="rgba(255,255,255,0.57)" stroke="#fff" stroke-width="2" style="mix-blend-mode: soft-light;isolation: isolate"/>
+          </svg>
+        </div>
+
+        <div class="svg-wrapper mobile-svg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="288.394" height="405.306" viewBox="0 0 288.394 405.306">
+            <path id="Path_10" data-name="Path 10" d="M168.7,121.222l.119.127h80.7c20.527,0,37.374,17.981,37.374,40.009V444.234c0,22.027-16.848,40.009-37.374,40.009H37.877C17.344,484.243.5,466.262.5,444.234L.689,120.947h0c0-22.03,16.658-40.009,37.189-40.009H131.04Z" transform="translate(0.5 -79.938)" fill="rgba(255,255,255,0.57)" stroke="#fff" stroke-width="2" style="mix-blend-mode: soft-light;isolation: isolate"/>
+          </svg>         
+            <div class="content">
+              <img class="portfolio" src="assets/Path 17@2x.png" alt="portfolio">
+            </div>
+          </div>
+        
+        <div class="social-icons">
+            <div class="social-icon" data-tooltip="Instagram" onclick="instagramClick()">
+                <img src="assets/Group 43943.svg" alt="instagram-logo">
+            </div>
+            <div class="social-icon" data-tooltip="LinkedIn" onclick="linkedinClick()">
+                <img src="assets/Path 312606.svg" alt="Linkedin-logo">
+            </div>
+            <div class="social-icon" data-tooltip="Medium" onclick="mediumClick()">
+                <img src="assets/Group 43944.svg" alt="medium-logo">
+            </div>
+            <div class="social-icon" data-tooltip="Mail">
+              <a href="mailto:tchawla28@gmail.com"><img src="assets/Path 312607.svg" alt="mail-logo"></a>
+            </div>
+        </div>
+        
+        <div class="menu-icon" data-tooltip="Tushar Chawla"><img src="assets/Component 45 – 1.svg" alt=""></div>
+    </div>
+    <div class="mobile">
+      <div><img src="assets/Component 45 – 1.svg" alt=""></div>
+      <strong>Currently, this site is optimized for desktop.</strong>
+      <p>we're working hard to bring you a seamless mobile experience.</p>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

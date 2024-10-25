@@ -1,0 +1,655 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    overflow: hidden;
+}
+.container {
+    
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: linear-gradient(135deg, #e4f9ff, #7dbeff); */
+    position: relative;
+    padding-top: 20px;
+}
+
+video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: soft-light;
+    opacity: 1;
+}
+
+.mobile{
+    display: none;
+
+    img{
+        height: 90px;
+        z-index: 10;
+        position: relative;
+        mix-blend-mode: darken;
+    }
+
+    strong{
+        width: 70%;
+    }
+
+    p{
+        font-weight: 600;
+        margin: 0px;
+    }
+}
+
+.card {
+    background: rgba(240, 255, 255, 0.5);
+    backdrop-filter: blur(22px);
+    /* border-radius: 30px 16% 30px 30px / 30px 18% 30px 30px; */
+    border-radius: 45px;
+    width: 72vw; /* Make width relative to the viewport width */
+    max-width: 938px;
+    height: auto; /* Remove fixed height, use aspect ratio for height */
+    aspect-ratio: 16/9;
+    position: absolute;
+    /* overflow: hidden; */
+    filter: brightness(100%) contrast(100%);
+    z-index: 1;
+    /* clip-path: polygon( 22.093% 8.435%,22.107% 8.461%,95.509% 8.461%,95.509% 8.461%,96.217% 8.57%,96.889% 8.883%,97.516% 9.385%,98.09% 10.058%,98.602% 10.885%,99.041% 11.848%,99.398% 12.93%,99.665% 14.114%,99.832% 15.382%,99.89% 16.718%,99.89% 91.606%,99.89% 91.606%,99.832% 92.941%,99.665% 94.21%,99.398% 95.394%,99.041% 96.476%,98.602% 97.439%,98.09% 98.265%,97.516% 98.938%,96.889% 99.44%,96.217% 99.754%,95.509% 99.862%,4.417% 99.862%,4.417% 99.862%,3.71% 99.754%,3.038% 99.44%,2.41% 98.938%,1.836% 98.265%,1.325% 97.439%,0.886% 96.476%,0.528% 95.394%,0.261% 94.21%,0.095% 92.941%,0.037% 91.606%,0.059% 8.378%,0.059% 8.378%,0.059% 8.378%,0.116% 7.042%,0.281% 5.774%,0.546% 4.59%,0.9% 3.508%,1.336% 2.545%,1.844% 1.719%,2.415% 1.046%,3.04% 0.544%,3.711% 0.23%,4.417% 0.122%,17.68% 0.122% ); */
+    display: flex;
+    align-items: flex-end;
+    border: 2px solid #ffffff;
+}
+
+.card1 {
+    background: rgba(179, 199, 249, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 45px;
+    width: 72vw; /* Make width relative to the viewport width */
+    max-width: 938px;
+    height: auto; /* Remove fixed height, use aspect ratio for height */
+    aspect-ratio: 16/9; /* Keep a consistent aspect ratio */
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    top: -52px;
+    border: 1px solid #fff;
+    clip-path: polygon( 22.093% 8.435%,22.107% 8.461%,95.509% 8.461%,95.509% 8.461%,96.217% 8.57%,96.889% 8.883%,97.516% 9.385%,98.09% 10.058%,98.602% 10.885%,99.041% 11.848%,99.398% 12.93%,99.665% 14.114%,99.832% 15.382%,99.89% 16.718%,99.89% 91.606%,99.89% 91.606%,99.832% 92.941%,99.665% 94.21%,99.398% 95.394%,99.041% 96.476%,98.602% 97.439%,98.09% 98.265%,97.516% 98.938%,96.889% 99.44%,96.217% 99.754%,95.509% 99.862%,4.417% 99.862%,4.417% 99.862%,3.71% 99.754%,3.038% 99.44%,2.41% 98.938%,1.836% 98.265%,1.325% 97.439%,0.886% 96.476%,0.528% 95.394%,0.261% 94.21%,0.095% 92.941%,0.037% 91.606%,0.059% 8.378%,0.059% 8.378%,0.059% 8.378%,0.116% 7.042%,0.281% 5.774%,0.546% 4.59%,0.9% 3.508%,1.336% 2.545%,1.844% 1.719%,2.415% 1.046%,3.04% 0.544%,3.711% 0.23%,4.417% 0.122%,17.68% 0.122% );
+    /* clip-path: polygon(17% 0, 18% 8%, 97% 8%, 97.5% 8.5%, 98% 9%, 98.5% 9.5%, 99% 10%, 99.5% 10.5%, 100% 11%, 100% 100%, 0 100%, 0 0); */
+    /* clip-path: polygon(15% 0, 20% 8%, 100% 8%, 100% 100%, 0 100%, 0% 60%, 0 0); */
+    /* clip-path: path("M 0 8 H 12 V 2 S 12 1 11 1 H 4 L 3 0 L 0 0"); */
+    /* clip-path: polygon(63.33px 310.47px,342.67px 310.47px,343.08px 130.35px,340.19px 118.57px,333.29px 110.79px,317.50px 107.24px,163.33px 106.00px,137.67px 82.53px,64.33px 81.53px); */
+}
+
+.svg-wrapper {
+    display: none;
+    position: absolute;
+    width: 90vw;
+    max-width: 938px;
+    filter: brightness(107%) contrast(100%);
+    /* mix-blend-mode: plus-lighter; */
+    height: auto;
+    aspect-ratio: 16 / 9;
+    backdrop-filter: blur(8px);
+    background: rgba(240, 250, 255, 0.2);
+    /* display: flex;
+    align-items: flex-end;
+    justify-content: center; */
+    z-index: 1;
+  }
+  
+  /* SVG itself */
+  .svg-wrapper svg {
+    width: 100%; /* Make the SVG responsive */
+    height: auto;
+    display: block;
+    pointer-events: none; /* Optional: Prevent interaction with the SVG */
+  }
+  
+  /* The path inside the SVG - customize stroke, fill, etc. */
+  .svg-wrapper svg path {
+    fill: rgba(240, 250, 255, 0.2); /* Match previous fill color */
+    stroke: #ffffff; /* White stroke as before */
+    stroke-width: 2; /* Stroke width */
+    mix-blend-mode: soft-light; /* Same blend mode */
+    isolation: isolate;
+  }
+
+  .svg-wrapper1 {
+    display: none;
+    background: rgba(179, 199, 249, 0.2);
+    backdrop-filter: blur(10px);
+    width: 90vw; /* Make width relative to the viewport width */
+    max-width: 938px;
+    height: auto; /* Remove fixed height, use aspect ratio for height */
+    aspect-ratio: 16/9; /* Keep a consistent aspect ratio */
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    top: -54px;
+    
+  }
+  
+  /* SVG itself */
+  .svg-wrapper1 svg {
+    width: 100%; /* Make the SVG responsive */
+    height: auto;
+    display: block;
+    pointer-events: none; /* Optional: Prevent interaction with the SVG */
+  }
+  
+  /* The path inside the SVG - customize stroke, fill, etc. */
+  .svg-wrapper1 svg path {
+    fill: rgba(179, 199, 249, 0.2); /* Match previous fill color */
+    stroke: #ffffff; /* White stroke as before */
+    stroke-width: 2; /* Stroke width */
+    mix-blend-mode: soft-light; /* Same blend mode */
+    isolation: isolate;
+  }
+  
+
+.tab {
+    position: absolute;
+    color: rgb(255, 255, 255, 0.4);
+    /* top: 9%; */
+    /* left: 28%; */
+    background: rgba(240, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 90vw; /* Width relative to viewport width */
+    max-width: 800px;
+    height: 90px; /* Auto-height to adjust */
+    aspect-ratio: 16/9;
+    transition: transform 0.3s ease;
+    backdrop-filter: blur(4px);
+    mix-blend-mode: plus-lighter;
+    font-weight: 400;
+    font-size: 25px;
+    z-index: 1;
+    margin-left: 51px; 
+    border: 1px solid #fff;
+    margin-bottom: 475px;
+}
+
+.graphics{
+    position: absolute;
+    color: rgb(255, 255, 255);
+    /* top: 40px; */
+    /* left: 25.5%; */
+    background: rgba(136, 161, 191, 1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 90vw; /* Width relative to viewport width */
+    max-width: 800px;
+    height: 90px; /* Auto-height to adjust */
+    aspect-ratio: 16/9;
+    transition: transform 0.3s ease;
+    font-weight: 400;
+    font-size: 25px;
+    z-index: 1;
+    margin-left: -25px;
+    margin-bottom: 510px;
+    border: 1px solid #fff;
+
+}
+
+
+
+.title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.content {
+    position: absolute;
+    bottom: 10%; /* Position content inside the SVG */
+    left: 5%;
+  }
+  
+  .portfolio {
+    width: 50%; /* Example size */
+    height: auto;
+  }
+.social-icons {
+    position: absolute;
+    right: 13%;
+    top: 66%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.social-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    img{
+        height: 28px;
+        width: 28px;
+    }
+}
+
+.social-icon::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    width: auto;
+    min-width: 70px;
+    text-align: center;
+    padding: 2px 10px;
+    border-radius: 2px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 3px rgba(128, 128, 128, 0.5);
+}
+
+.social-icon::after {
+    content: '';
+    position: absolute;
+    bottom: 100%; /* Position the arrow right above the tooltip */
+    left: 40%;
+    top:-11px;
+    transform: translateX(-50%);
+    transform: rotate(180deg);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent; /* Create the arrow with borders */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
+}
+
+
+
+
+.menu-icon {
+    position: absolute;
+    top: 50px;
+    left: 2%;
+    font-size: 24px;
+    color: #333;
+
+    img {
+        height: 90px;
+    }
+}
+
+.menu-icon::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 2px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 3px rgba(128, 128, 128, 0.5);
+}
+
+.menu-icon::after {
+    content: '';
+    position: absolute;
+    bottom: 100%; /* Position the arrow right above the tooltip */
+    left: 35%;
+    top:-10px;
+    transform: rotate(180deg);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent; /* Create the arrow with borders */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    visibility: hidden;
+}
+
+
+
+
+
+
+
+
+
+.container2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    height: 100vh;
+    /* background: linear-gradient(135deg, #e4f9ff, #7dbeff); */
+    position: relative;
+    padding-left: 8%;
+}
+
+h1 {
+    color: #000;
+    padding: 30px 0;
+    margin-top: 0;
+}
+.case-studies {
+    display: flex;
+    gap: 20px;
+}
+.case-study {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    /* border-radius: 10px 65px 10px 10px; */
+    width: 150px;
+    height: 120px;
+    display: flex;
+    font-size: 20px;
+    font-weight: 500;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    /* clip-path: polygon(0% 0%, 32% 0, 49% 23%, 94% 24%, 100% 30%, 100% 100%, 0 100%); */
+    align-content: center;
+    justify-content: center;
+    padding: 30px 0 0 30px;
+    align-items: center;
+    /* border: 1px solid white; */
+    /* box-shadow: 0 2px 3px rgba(128, 128, 128, 0.5) inset; */
+    clip-path: polygon( 8.756% 1.826%,8.753% 1.826%,8.75% 1.828%,8.75% 1.828%,8.529% 1.974%,8.314% 2.132%,8.105% 2.302%,7.904% 2.484%,7.711% 2.676%,7.525% 2.879%,7.348% 3.092%,7.179% 3.315%,7.018% 3.548%,6.867% 3.79%,6.867% 3.79%,6.724% 4.046%,6.595% 4.312%,6.48% 4.585%,6.38% 4.866%,6.295% 5.153%,6.224% 5.446%,6.169% 5.744%,6.13% 6.046%,6.106% 6.352%,6.097% 6.659%,6.097% 50.609%,6.097% 50.609%,6.098% 56.951%,6.099% 62.676%,6.101% 67.816%,6.106% 72.403%,6.112% 76.471%,6.121% 80.051%,6.132% 83.177%,6.147% 85.881%,6.166% 88.194%,6.189% 90.151%,6.189% 90.151%,6.202% 91.005%,6.216% 91.783%,6.232% 92.489%,6.248% 93.126%,6.267% 93.699%,6.286% 94.211%,6.307% 94.668%,6.33% 95.072%,6.354% 95.427%,6.38% 95.739%,6.38% 95.739%,6.389% 95.846%,6.399% 95.953%,6.411% 96.06%,6.425% 96.167%,6.44% 96.273%,6.457% 96.379%,6.476% 96.485%,6.496% 96.59%,6.518% 96.695%,6.542% 96.799%,6.542% 96.799%,6.558% 96.859%,6.575% 96.919%,6.595% 96.978%,6.615% 97.036%,6.637% 97.094%,6.66% 97.151%,6.684% 97.207%,6.71% 97.262%,6.737% 97.317%,6.766% 97.37%,6.766% 97.37%,6.769% 97.376%,6.769% 97.376%,6.905% 97.609%,7.049% 97.834%,7.202% 98.05%,7.364% 98.258%,7.533% 98.456%,7.709% 98.644%,7.893% 98.823%,8.084% 98.992%,8.282% 99.149%,8.486% 99.297%,8.49% 99.299%,8.494% 99.302%,8.494% 99.302%,8.583% 99.354%,8.68% 99.403%,8.789% 99.449%,8.913% 99.491%,9.054% 99.531%,9.217% 99.568%,9.404% 99.603%,9.619% 99.636%,9.866% 99.666%,10.147% 99.694%,10.147% 99.694%,10.468% 99.721%,10.832% 99.746%,11.244% 99.77%,11.706% 99.792%,12.222% 99.813%,12.795% 99.832%,13.429% 99.85%,14.128% 99.866%,14.895% 99.882%,15.732% 99.896%,15.732% 99.896%,17.637% 99.921%,19.871% 99.941%,22.463% 99.958%,25.439% 99.972%,28.829% 99.982%,32.661% 99.989%,36.963% 99.995%,41.762% 99.998%,47.088% 100%,52.968% 100%,52.968% 100%,59.105% 100%,64.635% 99.999%,69.59% 99.998%,74.002% 99.994%,77.903% 99.988%,81.328% 99.98%,84.307% 99.968%,86.875% 99.953%,89.063% 99.933%,90.903% 99.908%,90.903% 99.908%,91.703% 99.893%,92.43% 99.877%,93.086% 99.859%,93.676% 99.84%,94.205% 99.819%,94.676% 99.796%,95.093% 99.771%,95.46% 99.745%,95.782% 99.716%,96.062% 99.686%,96.062% 99.686%,96.157% 99.676%,96.252% 99.664%,96.347% 99.65%,96.441% 99.633%,96.536% 99.615%,96.63% 99.595%,96.723% 99.572%,96.816% 99.547%,96.909% 99.521%,97.002% 99.492%,97.002% 99.492%,97.055% 99.472%,97.108% 99.45%,97.16% 99.427%,97.212% 99.403%,97.263% 99.377%,97.313% 99.349%,97.364% 99.32%,97.413% 99.289%,97.462% 99.258%,97.51% 99.224%,97.517% 99.22%,97.524% 99.214%,97.524% 99.214%,97.733% 99.042%,97.937% 98.862%,98.134% 98.672%,98.325% 98.474%,98.509% 98.268%,98.687% 98.053%,98.858% 97.83%,99.021% 97.6%,99.177% 97.362%,99.326% 97.117%,99.331% 97.109%,99.335% 97.1%,99.335% 97.1%,99.362% 97.047%,99.388% 96.993%,99.413% 96.939%,99.437% 96.884%,99.46% 96.828%,99.482% 96.772%,99.503% 96.716%,99.524% 96.659%,99.543% 96.601%,99.562% 96.543%,99.562% 96.543%,99.585% 96.457%,99.607% 96.37%,99.628% 96.282%,99.647% 96.194%,99.665% 96.106%,99.681% 96.017%,99.695% 95.927%,99.708% 95.838%,99.72% 95.748%,99.73% 95.658%,99.73% 95.658%,99.766% 95.233%,99.798% 94.808%,99.827% 94.382%,99.851% 93.956%,99.872% 93.53%,99.889% 93.104%,99.903% 92.677%,99.912% 92.251%,99.918% 91.824%,99.92% 91.397%,99.92% 91.397%,99.942% 89.924%,99.959% 88.182%,99.973% 86.147%,99.983% 83.792%,99.99% 81.093%,99.995% 78.024%,99.998% 74.559%,99.999% 70.674%,100% 66.341%,100% 61.537%,100% 61.52%,100% 61.52%,100% 56.716%,99.999% 52.384%,99.998% 48.498%,99.995% 45.034%,99.99% 41.964%,99.983% 39.265%,99.973% 36.911%,99.959% 34.875%,99.942% 33.133%,99.92% 31.66%,99.92% 31.66%,99.918% 31.233%,99.912% 30.806%,99.903% 30.379%,99.889% 29.953%,99.872% 29.526%,99.851% 29.1%,99.827% 28.674%,99.798% 28.249%,99.766% 27.824%,99.73% 27.399%,99.73% 27.399%,99.72% 27.309%,99.708% 27.219%,99.695% 27.129%,99.681% 27.04%,99.665% 26.951%,99.647% 26.862%,99.628% 26.774%,99.607% 26.687%,99.585% 26.6%,99.562% 26.513%,99.562% 26.513%,99.543% 26.455%,99.524% 26.398%,99.503% 26.341%,99.482% 26.284%,99.46% 26.228%,99.437% 26.173%,99.413% 26.118%,99.388% 26.063%,99.362% 26.01%,99.335% 25.956%,99.331% 25.948%,99.326% 25.94%,99.326% 25.94%,99.178% 25.694%,99.022% 25.455%,98.858% 25.224%,98.687% 25%,98.51% 24.785%,98.325% 24.578%,98.134% 24.379%,97.937% 24.189%,97.734% 24.008%,97.524% 23.836%,97.52% 23.832%,97.515% 23.828%,97.515% 23.828%,97.412% 23.757%,97.307% 23.691%,97.199% 23.63%,97.09% 23.575%,96.979% 23.525%,96.866% 23.481%,96.752% 23.443%,96.636% 23.411%,96.519% 23.384%,96.401% 23.364%,96.401% 23.364%,96.113% 23.322%,95.825% 23.284%,95.537% 23.25%,95.248% 23.22%,94.959% 23.194%,94.669% 23.173%,94.38% 23.155%,94.09% 23.142%,93.8% 23.133%,93.51% 23.128%,93.51% 23.128%,92.551% 23.099%,91.427% 23.073%,90.121% 23.051%,88.618% 23.032%,86.903% 23.015%,84.96% 23%,82.774% 22.985%,80.329% 22.971%,77.61% 22.956%,74.601% 22.941%,74.315% 22.941%,52.468% 22.831%,47.601% 12.918%,47.601% 12.918%,47.601% 12.918%,46.944% 11.586%,46.344% 10.374%,45.799% 9.276%,45.304% 8.286%,44.856% 7.398%,44.45% 6.605%,44.085% 5.901%,43.755% 5.28%,43.458% 4.736%,43.19% 4.263%,43.19% 4.263%,43.096% 4.095%,42.999% 3.93%,42.9% 3.768%,42.797% 3.608%,42.693% 3.45%,42.585% 3.296%,42.475% 3.144%,42.362% 2.994%,42.246% 2.848%,42.128% 2.704%,42.128% 2.704%,42.046% 2.615%,41.961% 2.529%,41.875% 2.446%,41.786% 2.367%,41.696% 2.291%,41.603% 2.219%,41.509% 2.15%,41.412% 2.084%,41.315% 2.022%,41.215% 1.963%,41.215% 1.963%,41.113% 1.896%,41.009% 1.831%,40.905% 1.771%,40.798% 1.714%,40.691% 1.66%,40.582% 1.61%,40.472% 1.564%,40.361% 1.522%,40.249% 1.483%,40.136% 1.449%,40.136% 1.449%,39.929% 1.403%,39.721% 1.361%,39.513% 1.324%,39.304% 1.292%,39.095% 1.263%,38.886% 1.24%,38.676% 1.22%,38.466% 1.205%,38.256% 1.195%,38.045% 1.189%,38.045% 1.189%,37.379% 1.16%,36.6% 1.137%,35.696% 1.119%,34.656% 1.106%,33.467% 1.096%,32.117% 1.09%,30.594% 1.086%,28.887% 1.084%,26.983% 1.083%,24.871% 1.083%,24.847% 1.083%,24.847% 1.083%,22.907% 1.091%,21.139% 1.1%,19.535% 1.11%,18.086% 1.122%,16.782% 1.135%,15.616% 1.15%,14.579% 1.168%,13.661% 1.188%,12.855% 1.212%,12.151% 1.24%,12.151% 1.24%,11.542% 1.272%,11.015% 1.308%,10.562% 1.349%,10.175% 1.396%,9.845% 1.449%,9.563% 1.509%,9.322% 1.576%,9.113% 1.651%,8.927% 1.734%,8.756% 1.826% );
+}
+
+.image{
+    top: 176px;
+    left: 140px;
+    width: 316px;
+    height: 279px;
+    background: transparent url('assets/Component\ 14\ –\ 1\ \(1\).svg') 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+
+/* @media screen and (max-width: 768px) {
+    .card {
+        width: 95vw;
+        border-radius: 30px;
+    }
+    
+    .tab {
+        width: 95vw;
+        font-size: 20px;
+        margin-left: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 100vw;
+        border-radius: 20px;
+    }
+    
+    .tab {
+        width: 100vw;
+        font-size: 18px;
+        margin-left: 10px;
+    }
+} */
+
+ /*desktop view*/
+@media only screen and (min-width:1025px) {
+    .desktop-svg {
+      display: block;
+      clip-path: polygon( 22.093% 8.435%,22.107% 8.461%,95.509% 8.461%,95.509% 8.461%,96.217% 8.57%,96.889% 8.883%,97.516% 9.385%,98.09% 10.058%,98.602% 10.885%,99.041% 11.848%,99.398% 12.93%,99.665% 14.114%,99.832% 15.382%,99.89% 16.718%,99.89% 91.606%,99.89% 91.606%,99.832% 92.941%,99.665% 94.21%,99.398% 95.394%,99.041% 96.476%,98.602% 97.439%,98.09% 98.265%,97.516% 98.938%,96.889% 99.44%,96.217% 99.754%,95.509% 99.862%,4.417% 99.862%,4.417% 99.862%,3.71% 99.754%,3.038% 99.44%,2.41% 98.938%,1.836% 98.265%,1.325% 97.439%,0.886% 96.476%,0.528% 95.394%,0.261% 94.21%,0.095% 92.941%,0.037% 91.606%,0.059% 8.378%,0.059% 8.378%,0.059% 8.378%,0.116% 7.042%,0.281% 5.774%,0.546% 4.59%,0.9% 3.508%,1.336% 2.545%,1.844% 1.719%,2.415% 1.046%,3.04% 0.544%,3.711% 0.23%,4.417% 0.122%,17.68% 0.122% );
+    }
+
+    .tab:hover, .graphics:hover{
+        transform: translateY(-30px);
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .menu-icon:hover::before,
+    .menu-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+    .menu-icon:hover::before {
+        background-color: #fff;
+        color: black;
+        font-weight: 700;
+}
+
+.menu-icon:hover::after {
+    border-color: transparent transparent #fff transparent; /* Change arrow color when hovered */
+}
+
+.social-icon:hover::before,
+.social-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+    cursor: pointer;
+}
+
+.social-icon:hover::before, .social-icon:hover {
+    background-color: #fff;
+    color: black;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+.social-icon:hover::after {
+    border-color: transparent transparent #fff transparent; /* Change arrow color when hovered */
+    cursor: pointer;
+}
+  }
+
+  /*tablet view*/
+  @media only screen and (min-width:481px) and (max-width: 1024px)  {
+
+    .container{
+        display: none;
+    }
+    
+    .mobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .mobile-svg {
+        display: block;        
+        /* clip-path: polygon(168.7px 121.222px, 168.819px 121.349px, 249.519px 121.349px, 249.519px 121.349px, 255.553533px 121.874496px, 261.288264px 123.395248px, 266.644191px 125.827652px, 271.542312px 129.088104px, 275.903625px 133.093px, 279.649128px 137.758736px, 282.699819px 143.001708px, 284.976696px 148.738312px, 286.400757px 154.884944px, 286.893px 161.358px, 286.893px 444.234px, 286.893px 444.234px, 286.40073px 450.706813px, 284.9766px 456.853304px, 282.69963px 462.589851px, 279.64884px 467.832832px, 275.90325px 472.498625px, 271.54188px 476.503608px, 266.64375px 479.764159px, 261.28788px 482.196656px, 255.55329px 483.717477px, 249.519px 484.243px, 37.877px 484.243px, 37.877px 484.243px, 31.840925px 483.717504px, 26.10512px 482.196752px, 20.748515px 479.764348px, 15.85004px 476.503896px, 11.488625px 472.499px, 7.7432px 467.833264px, 4.692695px 462.590292px, 2.41604px 456.853688px, 0.992165px 450.707056px, 0.5px 444.234px, 0.689px 120.947px, 0.689px 120.947px, 0.689px 120.947px, 1.175955px 114.473458px, 2.58568px 108.326544px, 4.841465px 102.589826px, 7.8666px 97.346872px, 11.584375px 92.68125px, 15.91808px 88.676528px, 20.791005px 85.416274px, 26.12644px 82.984056px, 31.847675px 81.463442px, 37.878px 80.938px, 131.04px 80.938px);  */
+      }
+  
+      .svg-wrapper{
+          width: 65vw;
+          backdrop-filter: none;
+          background: none;
+      }
+
+      .svg-wrapper svg path {
+        fill: rgba(220, 240, 255, 0.7); /* Match previous fill color */
+        stroke-width: 1; /* Stroke width */
+      }
+
+      .svg-wrapper1 svg path {
+        stroke-width: 1; /* Stroke width */
+      }
+
+
+      .svg-wrapper1 {
+        width: 65vw;
+        top: -250px;
+    }
+  
+      .tab{
+        width: 55vw;
+        margin-left: -34px;
+        margin-bottom: 560px;
+        height: auto;
+        font-size: 24px;
+        border: 0.5px solid #ffffff;
+    }
+  
+      .graphics{
+        width: 58vw;
+        height: auto;
+        margin-left: -9px;
+        margin-bottom: 650px;
+        font-size: 24px;
+      }
+  
+  
+      .menu-icon {
+          top: 15px;
+          right: 10%;
+      
+          img {
+              height: 90px;
+          }
+      }
+
+      .content {
+        left: 6%;
+      }
+      
+      .portfolio {
+        width: 80%; 
+      }
+  
+      .social-icons{
+         margin-top: 970px;
+          display: flex;
+          flex-direction: row;
+          gap: 15px;
+          left: 18%;
+          right: revert;
+          top: revert;
+      }
+
+      .social-icon{
+        width: 90px;
+        height: 90px;
+        img{
+            height: 50%;
+            width: 50%;
+          }
+      }
+
+  }
+  
+  /* mobile screens */
+  @media only screen and (max-width:480px)
+  {
+
+    .container{
+        display: none;
+    }
+    
+    .mobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .mobile-svg {
+      display: block;   
+      /* clip-path: polygon(168.7px 121.222px, 168.819px 121.349px, 249.519px 121.349px, 249.519px 121.349px, 255.553533px 121.874496px, 261.288264px 123.395248px, 266.644191px 125.827652px, 271.542312px 129.088104px, 275.903625px 133.093px, 279.649128px 137.758736px, 282.699819px 143.001708px, 284.976696px 148.738312px, 286.400757px 154.884944px, 286.893px 161.358px, 286.893px 444.234px, 286.893px 444.234px, 286.40073px 450.706813px, 284.9766px 456.853304px, 282.69963px 462.589851px, 279.64884px 467.832832px, 275.90325px 472.498625px, 271.54188px 476.503608px, 266.64375px 479.764159px, 261.28788px 482.196656px, 255.55329px 483.717477px, 249.519px 484.243px, 37.877px 484.243px, 37.877px 484.243px, 31.840925px 483.717504px, 26.10512px 482.196752px, 20.748515px 479.764348px, 15.85004px 476.503896px, 11.488625px 472.499px, 7.7432px 467.833264px, 4.692695px 462.590292px, 2.41604px 456.853688px, 0.992165px 450.707056px, 0.5px 444.234px, 0.689px 120.947px, 0.689px 120.947px, 0.689px 120.947px, 1.175955px 114.473458px, 2.58568px 108.326544px, 4.841465px 102.589826px, 7.8666px 97.346872px, 11.584375px 92.68125px, 15.91808px 88.676528px, 20.791005px 85.416274px, 26.12644px 82.984056px, 31.847675px 81.463442px, 37.878px 80.938px, 131.04px 80.938px);  */
+    }
+
+    .svg-wrapper{
+        width: 73vw;
+        backdrop-filter: none;
+        background: none;
+    }
+
+    .svg-wrapper svg path {
+        fill: rgba(220, 240, 255, 0.7); /* Match previous fill color */
+        stroke-width: 1; /* Stroke width */
+      }
+
+      .svg-wrapper1 svg path {
+        stroke-width: 1; /* Stroke width */
+      }
+
+
+    .svg-wrapper1 {
+        width: 73vw;
+        top: -148px;
+    }
+
+    .tab{
+        width: 55vw;
+        margin-left: -24px;
+        margin-bottom: 330px;
+        height: auto;
+        font-size: 20px;
+        border: 0.5px solid #ffffff;
+    }
+
+    .graphics{
+        width: 59vw;
+        height: auto;
+        margin-left: -10px;
+        margin-bottom: 405px;
+        font-size: 20px;
+    }
+
+    .content {
+        left: 6%;
+      }
+      
+      .portfolio {
+        width: 80%; 
+      }
+
+
+    .menu-icon {
+        top: 15px;
+        right: 10%;
+    
+        img {
+            height: 55px;
+        }
+    }
+
+    .social-icons{
+        margin-top: 500px;
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        left: 14%;
+        right: revert;
+        top: revert;
+    }
+    
+  }
+  
+
+
