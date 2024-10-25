@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+         @font-face {
+        font-family: AislingFreeDemo;
+        font-weight: bold;
+        src: url("./AislingFreeDemo.otf") format("opentype");
+        }
+
+        #loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255,255,255,0.074); /* Fallback color */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        #loaderVideo {
+            height: 90px;
+        }
+
+        /* Hide the main content initially */
+        .container {
+        opacity: 0;
+        display: none;
+        transition: opacity 1s ease-in-out;
+        }
+
+        .loaded.container{
+            display: flex;
+            flex-direction: column;
+            width: 80vw;
+            height: auto;
+            margin: 70px auto 0;
+            font-family: "Montserrat", sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 1;
+        }
+
+        .main{
+            width: 100%;
+            height: 87vh;
+            color: #fff;
+            background-color: #000;
+            clip-path: polygon( 22.093% 8.435%,22.107% 8.461%,95.509% 8.461%,95.509% 8.461%,96.217% 8.57%,96.889% 8.883%,97.516% 9.385%,98.09% 10.058%,98.602% 10.885%,99.041% 11.848%,99.398% 12.93%,99.665% 14.114%,99.832% 15.382%,99.89% 16.718%,99.89% 91.606%,99.89% 91.606%,99.832% 92.941%,99.665% 94.21%,99.398% 95.394%,99.041% 96.476%,98.602% 97.439%,98.09% 98.265%,97.516% 98.938%,96.889% 99.44%,96.217% 99.754%,95.509% 99.862%,4.417% 99.862%,4.417% 99.862%,3.71% 99.754%,3.038% 99.44%,2.41% 98.938%,1.836% 98.265%,1.325% 97.439%,0.886% 96.476%,0.528% 95.394%,0.261% 94.21%,0.095% 92.941%,0.037% 91.606%,0.059% 8.378%,0.059% 8.378%,0.059% 8.378%,0.116% 7.042%,0.281% 5.774%,0.546% 4.59%,0.9% 3.508%,1.336% 2.545%,1.844% 1.719%,2.415% 1.046%,3.04% 0.544%,3.711% 0.23%,4.417% 0.122%,17.68% 0.122% );
+            
+            .image{
+            position: relative;
+            top: 30px;
+            left: 5px;
+            width: 59px;
+            height: 59px;
+            }
+        }
+
+        .project{
+            font-weight: 800;
+            padding: 25px;
+            position: relative;
+            z-index: 1;
+
+            span{
+                width: 97px;
+                display: inline-block;
+                background: #fff;
+                height: 7px;
+                opacity: 0.4;
+                position: relative;
+                right: 81px;
+                top: 5px;
+            }
+        }
+
+        .client{
+            font-weight: 800;
+            padding-left: 25px;
+            font-size: 14px;
+            margin-top: 33px;
+        }
+
+        .role{
+            position: absolute;
+            z-index: 2;
+            bottom: 30px;
+        }
+
+        .divider{
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .left-section{
+            width: 34%;
+            float: left;
+            padding-top: 20px;
+
+            p{
+            padding-left: 45px;
+            font-weight: 300;
+            margin-top: 20px;
+        }
+        }
+
+        .right-section{
+            width: 66%;
+            float: right;
+            position: relative;
+            top: -60px;
+
+            .video{
+                position: relative;
+                right: -100px;
+                bottom: -11px;
+            }
+        }
+
+        .right{
+            right: 200px;
+            font-size: 16px;
+            color: #000;
+        }
+
+        .left{
+            left: -100px;
+        }
+
+        
+
+        h1{
+            height: 190px;
+            font-size: 100px;
+            padding-left: 45px;
+            margin: unset;
+            font-family: "AislingFreeDemo", sans-serif;
+            color: #fff;
+        }
+
+        
+
+        .problem-statement {
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .problem-items {
+            display: flex;
+            gap: 20px;
+        }
+        .problem-item {
+            flex: 1;
+            display: flex;
+            align-items: center;
+
+            h3{
+            background-color: #E9F6FF;
+            padding: 0px 25px;
+            height: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            border-radius: 10px;
+        }
+
+            p{
+                padding-left: 10px;
+                font-size: 11px;
+                font-weight: 600;
+                padding-top: 0;
+                margin: 0;
+            }
+        }
+
+        .design-items{
+            display: flex;
+            flex-direction: column;
+
+            h3{
+                margin: 0;
+            }
+
+        }
+
+        .icon {
+            mix-blend-mode: multiply;
+
+            img{
+                width: 120px;
+                height: 120px;
+            }    
+        }
+
+        .Statement{
+            h2, .conclusion{
+                margin-bottom: 0;
+            }
+        }
+
+        .persona{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img{
+                width: 80%;
+            }
+        }
+
+        .taskflow{
+
+            img{
+                width: 100%;
+            }
+            
+        }
+
+        .Branding{
+            width: 90%;
+            margin: 0 auto;
+            margin-bottom: 40px;
+
+            .right{
+                display: flex;
+                align-items: center;
+
+                .video{
+                width: 50%;
+                height: 50%;
+                box-shadow: inset 0px 0px 20px #00000041;
+                border-radius: 19px;
+                display: flex;
+                justify-content: center;
+
+                video{
+                    margin: 13px 0;
+                    width: 95%;
+                    height: 95%;
+                }
+                }
+              .para{
+                width: 50%;
+                padding-left: 20px;
+
+                .conclusion{
+                    width: 100%;
+                    list-style: none;
+                    padding: 0;
+                    font-size: 14px;
+
+                    li{
+                        padding-bottom: 20px;
+                    }
+                }
+
+              }  
+            }
+
+            .left{
+                display: flex;
+                align-items: center;
+                margin-top: -30px;
+
+                .video{
+                width: 50%;
+                height: 50%;
+
+
+                img{
+                    width: 90%;
+                    height: 90%;
+                    margin-left: 30px;
+                }
+                }
+              .para{
+                width: 50%;
+                padding-right: 20px;
+
+                .conclusion{
+                    width: 100%;
+                    list-style: none;
+                    padding: 0;
+                    font-size: 14px;
+
+                    li{
+                        padding-bottom: 20px;
+                    }
+                }
+
+              }  
+            
+        }
+            
+        }
+
+        .info-section{
+            width: 90%;
+            margin: 0 auto;
+            margin-bottom: 40px;
+
+            p{
+                width: 55%;
+                margin: 0 auto;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .image-grid {
+                display: flex;
+                flex-direction: column;
+                gap: 20px; /* Space between rows */
+            }
+
+            .row {
+                display: flex;
+                justify-content: center; /* Center images in their rows */
+                gap: 20px; /* Space between images */
+            }
+
+            .border{
+                width: 50%;
+                height: 50%;
+                box-shadow: inset 0px 0px 20px #00000041;
+                border-radius: 19px;
+                margin: 0 auto;
+                display: flex;
+            }
+
+            .aspect{
+                aspect-ratio: auto;
+            }
+
+            .image-item {
+                width: 95%;
+                height: 95%;
+                height: 95%;
+                margin: 10px auto;
+            }
+
+            .row:first-child {
+                justify-content: center; /* Center the first image */
+            }
+
+            .row:nth-child(2) {
+                justify-content: space-between; /* Align the second-row images */
+            }
+        }
+
+        .oneNation{
+            width: 100%;
+            
+
+            .left{
+                display: flex;
+                align-items: center;
+
+                .video{
+                width: 50%;
+                height: 50%;
+                box-shadow: inset 0px 0px 20px #00000041;
+                border-radius: 19px;
+                display: flex;
+                justify-content: center;
+                margin-left: 30px;
+
+
+                img{
+                    width: 97%;
+                    margin: 5px 0;
+                    
+                }
+                }
+              .para{
+                width: 50%;
+                padding-right: 20px;
+
+                .conclusion{
+                    width: 100%;
+                    list-style: none;
+                    padding: 0;
+                    font-size: 14px;
+
+                    li{
+                        padding-bottom: 20px;
+                        width: 60%;
+                    }
+
+                }
+
+                
+                h2{
+                    color: darkred;
+                }
+
+              }  
+            
+        }
+
+        p{
+            width: 55%;
+            margin: 60px auto;
+            text-align: center;
+        }
+
+        }
+
+        .typography{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            img{
+                width: 90%;
+            }
+        }
+
+        .color{
+            img{
+                width: 100%;
+            }
+        }
+
+        .visual{
+            gap: 30px;
+            display: flex;
+            flex-direction: column;
+
+            img{
+                width: 100%;
+            }
+
+            div{
+                margin-top: -65px;
+                h2{
+                    position: relative;
+                    z-index: 1;
+                    top: 75px;
+                    left: 35px;
+                }
+
+                video{
+                    width: 119%;
+                    clip-path: inset(0 8%);
+                    margin-left: -9.5%;
+                }
+            }
+        }
+
+        .conclusion{
+            width: 60%;
+            list-style: none;
+            padding: 0;
+            font-size: 14px;
+
+            li{
+                padding-bottom: 20px;
+
+                a{
+                    color: black;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .points{
+            width: 50%;
+            padding: 0;
+            font-size: 14px;
+            list-style: none;
+            
+            li{
+                padding-bottom: 20px;
+            }
+        }
+
+        .breaker{
+            width: 100%;
+            height: 2px;
+            background-color: gray;
+        }
+
+        .thankyou-statement{
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .thankyou{
+            line-height: 30px;
+            
+            h2, p{
+                margin: 0;
+                font-size: 22px;
+            }
+            
+        }
+
+        .case-studies {
+            display: flex;
+            gap: 20px;
+            padding-top: 20px;
+        }
+
+        .case-study {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            /* border-radius: 10px 65px 10px 10px; */
+            width: 150px;
+            height: 120px;
+            display: flex;
+            font-size: 20px;
+            font-weight: 500;
+            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+            /* clip-path: polygon(0% 0%, 32% 0, 49% 23%, 94% 24%, 100% 30%, 100% 100%, 0 100%); */
+            align-content: center;
+            justify-content: center;
+            padding: 30px 0 0 30px;
+            align-items: center;
+            box-shadow: inset 3px 10px 50px #436EFF7C;
+            /* border: 1px solid white; */
+            /* box-shadow: 0 2px 3px rgba(128, 128, 128, 0.5) inset; */
+            clip-path: polygon( 8.756% 1.826%,8.753% 1.826%,8.75% 1.828%,8.75% 1.828%,8.529% 1.974%,8.314% 2.132%,8.105% 2.302%,7.904% 2.484%,7.711% 2.676%,7.525% 2.879%,7.348% 3.092%,7.179% 3.315%,7.018% 3.548%,6.867% 3.79%,6.867% 3.79%,6.724% 4.046%,6.595% 4.312%,6.48% 4.585%,6.38% 4.866%,6.295% 5.153%,6.224% 5.446%,6.169% 5.744%,6.13% 6.046%,6.106% 6.352%,6.097% 6.659%,6.097% 50.609%,6.097% 50.609%,6.098% 56.951%,6.099% 62.676%,6.101% 67.816%,6.106% 72.403%,6.112% 76.471%,6.121% 80.051%,6.132% 83.177%,6.147% 85.881%,6.166% 88.194%,6.189% 90.151%,6.189% 90.151%,6.202% 91.005%,6.216% 91.783%,6.232% 92.489%,6.248% 93.126%,6.267% 93.699%,6.286% 94.211%,6.307% 94.668%,6.33% 95.072%,6.354% 95.427%,6.38% 95.739%,6.38% 95.739%,6.389% 95.846%,6.399% 95.953%,6.411% 96.06%,6.425% 96.167%,6.44% 96.273%,6.457% 96.379%,6.476% 96.485%,6.496% 96.59%,6.518% 96.695%,6.542% 96.799%,6.542% 96.799%,6.558% 96.859%,6.575% 96.919%,6.595% 96.978%,6.615% 97.036%,6.637% 97.094%,6.66% 97.151%,6.684% 97.207%,6.71% 97.262%,6.737% 97.317%,6.766% 97.37%,6.766% 97.37%,6.769% 97.376%,6.769% 97.376%,6.905% 97.609%,7.049% 97.834%,7.202% 98.05%,7.364% 98.258%,7.533% 98.456%,7.709% 98.644%,7.893% 98.823%,8.084% 98.992%,8.282% 99.149%,8.486% 99.297%,8.49% 99.299%,8.494% 99.302%,8.494% 99.302%,8.583% 99.354%,8.68% 99.403%,8.789% 99.449%,8.913% 99.491%,9.054% 99.531%,9.217% 99.568%,9.404% 99.603%,9.619% 99.636%,9.866% 99.666%,10.147% 99.694%,10.147% 99.694%,10.468% 99.721%,10.832% 99.746%,11.244% 99.77%,11.706% 99.792%,12.222% 99.813%,12.795% 99.832%,13.429% 99.85%,14.128% 99.866%,14.895% 99.882%,15.732% 99.896%,15.732% 99.896%,17.637% 99.921%,19.871% 99.941%,22.463% 99.958%,25.439% 99.972%,28.829% 99.982%,32.661% 99.989%,36.963% 99.995%,41.762% 99.998%,47.088% 100%,52.968% 100%,52.968% 100%,59.105% 100%,64.635% 99.999%,69.59% 99.998%,74.002% 99.994%,77.903% 99.988%,81.328% 99.98%,84.307% 99.968%,86.875% 99.953%,89.063% 99.933%,90.903% 99.908%,90.903% 99.908%,91.703% 99.893%,92.43% 99.877%,93.086% 99.859%,93.676% 99.84%,94.205% 99.819%,94.676% 99.796%,95.093% 99.771%,95.46% 99.745%,95.782% 99.716%,96.062% 99.686%,96.062% 99.686%,96.157% 99.676%,96.252% 99.664%,96.347% 99.65%,96.441% 99.633%,96.536% 99.615%,96.63% 99.595%,96.723% 99.572%,96.816% 99.547%,96.909% 99.521%,97.002% 99.492%,97.002% 99.492%,97.055% 99.472%,97.108% 99.45%,97.16% 99.427%,97.212% 99.403%,97.263% 99.377%,97.313% 99.349%,97.364% 99.32%,97.413% 99.289%,97.462% 99.258%,97.51% 99.224%,97.517% 99.22%,97.524% 99.214%,97.524% 99.214%,97.733% 99.042%,97.937% 98.862%,98.134% 98.672%,98.325% 98.474%,98.509% 98.268%,98.687% 98.053%,98.858% 97.83%,99.021% 97.6%,99.177% 97.362%,99.326% 97.117%,99.331% 97.109%,99.335% 97.1%,99.335% 97.1%,99.362% 97.047%,99.388% 96.993%,99.413% 96.939%,99.437% 96.884%,99.46% 96.828%,99.482% 96.772%,99.503% 96.716%,99.524% 96.659%,99.543% 96.601%,99.562% 96.543%,99.562% 96.543%,99.585% 96.457%,99.607% 96.37%,99.628% 96.282%,99.647% 96.194%,99.665% 96.106%,99.681% 96.017%,99.695% 95.927%,99.708% 95.838%,99.72% 95.748%,99.73% 95.658%,99.73% 95.658%,99.766% 95.233%,99.798% 94.808%,99.827% 94.382%,99.851% 93.956%,99.872% 93.53%,99.889% 93.104%,99.903% 92.677%,99.912% 92.251%,99.918% 91.824%,99.92% 91.397%,99.92% 91.397%,99.942% 89.924%,99.959% 88.182%,99.973% 86.147%,99.983% 83.792%,99.99% 81.093%,99.995% 78.024%,99.998% 74.559%,99.999% 70.674%,100% 66.341%,100% 61.537%,100% 61.52%,100% 61.52%,100% 56.716%,99.999% 52.384%,99.998% 48.498%,99.995% 45.034%,99.99% 41.964%,99.983% 39.265%,99.973% 36.911%,99.959% 34.875%,99.942% 33.133%,99.92% 31.66%,99.92% 31.66%,99.918% 31.233%,99.912% 30.806%,99.903% 30.379%,99.889% 29.953%,99.872% 29.526%,99.851% 29.1%,99.827% 28.674%,99.798% 28.249%,99.766% 27.824%,99.73% 27.399%,99.73% 27.399%,99.72% 27.309%,99.708% 27.219%,99.695% 27.129%,99.681% 27.04%,99.665% 26.951%,99.647% 26.862%,99.628% 26.774%,99.607% 26.687%,99.585% 26.6%,99.562% 26.513%,99.562% 26.513%,99.543% 26.455%,99.524% 26.398%,99.503% 26.341%,99.482% 26.284%,99.46% 26.228%,99.437% 26.173%,99.413% 26.118%,99.388% 26.063%,99.362% 26.01%,99.335% 25.956%,99.331% 25.948%,99.326% 25.94%,99.326% 25.94%,99.178% 25.694%,99.022% 25.455%,98.858% 25.224%,98.687% 25%,98.51% 24.785%,98.325% 24.578%,98.134% 24.379%,97.937% 24.189%,97.734% 24.008%,97.524% 23.836%,97.52% 23.832%,97.515% 23.828%,97.515% 23.828%,97.412% 23.757%,97.307% 23.691%,97.199% 23.63%,97.09% 23.575%,96.979% 23.525%,96.866% 23.481%,96.752% 23.443%,96.636% 23.411%,96.519% 23.384%,96.401% 23.364%,96.401% 23.364%,96.113% 23.322%,95.825% 23.284%,95.537% 23.25%,95.248% 23.22%,94.959% 23.194%,94.669% 23.173%,94.38% 23.155%,94.09% 23.142%,93.8% 23.133%,93.51% 23.128%,93.51% 23.128%,92.551% 23.099%,91.427% 23.073%,90.121% 23.051%,88.618% 23.032%,86.903% 23.015%,84.96% 23%,82.774% 22.985%,80.329% 22.971%,77.61% 22.956%,74.601% 22.941%,74.315% 22.941%,52.468% 22.831%,47.601% 12.918%,47.601% 12.918%,47.601% 12.918%,46.944% 11.586%,46.344% 10.374%,45.799% 9.276%,45.304% 8.286%,44.856% 7.398%,44.45% 6.605%,44.085% 5.901%,43.755% 5.28%,43.458% 4.736%,43.19% 4.263%,43.19% 4.263%,43.096% 4.095%,42.999% 3.93%,42.9% 3.768%,42.797% 3.608%,42.693% 3.45%,42.585% 3.296%,42.475% 3.144%,42.362% 2.994%,42.246% 2.848%,42.128% 2.704%,42.128% 2.704%,42.046% 2.615%,41.961% 2.529%,41.875% 2.446%,41.786% 2.367%,41.696% 2.291%,41.603% 2.219%,41.509% 2.15%,41.412% 2.084%,41.315% 2.022%,41.215% 1.963%,41.215% 1.963%,41.113% 1.896%,41.009% 1.831%,40.905% 1.771%,40.798% 1.714%,40.691% 1.66%,40.582% 1.61%,40.472% 1.564%,40.361% 1.522%,40.249% 1.483%,40.136% 1.449%,40.136% 1.449%,39.929% 1.403%,39.721% 1.361%,39.513% 1.324%,39.304% 1.292%,39.095% 1.263%,38.886% 1.24%,38.676% 1.22%,38.466% 1.205%,38.256% 1.195%,38.045% 1.189%,38.045% 1.189%,37.379% 1.16%,36.6% 1.137%,35.696% 1.119%,34.656% 1.106%,33.467% 1.096%,32.117% 1.09%,30.594% 1.086%,28.887% 1.084%,26.983% 1.083%,24.871% 1.083%,24.847% 1.083%,24.847% 1.083%,22.907% 1.091%,21.139% 1.1%,19.535% 1.11%,18.086% 1.122%,16.782% 1.135%,15.616% 1.15%,14.579% 1.168%,13.661% 1.188%,12.855% 1.212%,12.151% 1.24%,12.151% 1.24%,11.542% 1.272%,11.015% 1.308%,10.562% 1.349%,10.175% 1.396%,9.845% 1.449%,9.563% 1.509%,9.322% 1.576%,9.113% 1.651%,8.927% 1.734%,8.756% 1.826% );
+        }
+
+        .case-study:hover{
+            box-shadow: inset 3px 10px 50px #43BEFFB7;
+            color: #0D6390;
+
+            p{
+                font-weight: 800;
+            }
+            
+        }
+
+        .menu-icon {
+            position: fixed;
+            top: 50px;
+            left: 2%;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+
+            img {
+                height: 90px;
+            }
+        }
+
+        .menu-icon::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 2px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+            visibility: hidden;
+            margin-bottom: 10px;
+            box-shadow: 0 3px 3px rgba(128, 128, 128, 0.5);
+        }
+
+        .menu-icon::after {
+            content: '';
+            position: absolute;
+            bottom: 100%; /* Position the arrow right above the tooltip */
+            left: 35%;
+            top:-10px;
+            transform: rotate(180deg);
+            border-width: 6px;
+            border-style: solid;
+            border-color: transparent transparent #333 transparent; /* Create the arrow with borders */
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            visibility: hidden;
+        }
+
+        .menu-icon:hover::before,
+        .menu-icon:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .menu-icon:hover::before {
+            background-color: #fff;
+            color: black;
+            font-weight: 700;
+        }
+
+        .menu-icon:hover::after {
+            border-color: transparent transparent #fff transparent; /* Change arrow color when hovered */
+        }
+
+        .chakra-block{
+            h2{
+                text-align: center;
+            }
+
+            .rectangle {
+            width: 95%; /* Width of the visible rectangle */
+            height: 85vh; /* Height of the visible rectangle */
+            border: 2px solid #000; /* Optional border for visual reference */
+            overflow: hidden; /* Hides any overflow content */
+            position: relative; /* Ensures that content stays within bounds */
+            box-shadow: inset 0px 0px 12px #0000008B, 0px 1px 8px #00000093;
+            border: 33px solid #000000;
+            border-radius: 21px;
+        }
+
+        .scroll-container {
+            height: 100%; /* Container takes full height of the rectangle */
+            width: 100%;
+            overflow-y: scroll; /* Enables vertical scrolling */
+            overflow-x: hidden; /* Hides horizontal overflow */
+        }
+
+        .scroll-container img {
+            width: 100%; /* Image fits the width of the container */
+            height: auto; /* Maintains the aspect ratio */
+            display: block; /* Removes inline space for images */
+        }
+        }
+
+
+
+
+        .project-svg{
+            width: 190px;
+            height: 170px;
+            cursor: pointer;
+
+            p{
+            position: relative;
+            top: -138px;
+            font-size: 22px;
+            font-weight: 500;
+            justify-content: center;
+            padding-left: 23px
+            }
+
+            p.molocule{
+                top: -147px;
+            }
+
+        }
+
+        .project-svg:hover{
+            p{
+                
+                color: #0D6390;
+                font-weight: 800;
+            }
+        }
+
+        @media only screen and (max-width:480px)
+        {
+            .thankyou-statement,  .case-studies{
+                flex-direction: column;
+            }
+
+            .conclusion, .points{
+                width: 90%;
+            }
+
+            .chakra-block{
+                .rectangle{
+                height: 50vh;
+                border: 15px solid #000;
+            }
+            }
+
+            .info-section {
+                p {
+                    width: 100%;
+                }
+            }
+
+            .info-section {
+                .row{
+                    flex-direction: column;
+                }
+                .border {
+                    width: 100%;
+                }
+            }    
+
+            .oneNation{           
+
+            .left{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                .video{
+                width: 100%;
+                margin-left: 0;
+                }
+              .para{
+                width: 90%;
+                padding-right: 0px;
+
+                .conclusion{
+                    width: 100%;
+
+                    li{
+                        padding-bottom: 0px;
+                        width: 100%;
+                    }
+
+                }
+
+              }  
+            
+        }
+
+        p{
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        }
+
+        .visual{
+            div{
+                h2{
+                    top: 55px;
+                    left: 5px;
+                }
+            }
+        }
+
+            .Branding{
+            .right{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                .video{
+                width: 100%;
+
+                video{
+                    margin: 8px 0;
+                    width: 93%;
+                }
+                }
+              .para{
+                width: 100%;
+                padding-left: 10px;
+              }  
+            }
+
+            .left{
+                flex-direction: column;
+                margin-top: 0;
+
+                .video{
+                width: 100%;
+
+                img{
+                    width: 100%;
+                    margin-left: 0px;
+                }
+                }
+              .para{
+                width: 100%;
+                padding-right: 10px;
+              }  
+            
+        }
+            
+        }
+        }
+
+        @media only screen and (max-width:1280px)
+        {
+            .role{
+            position: absolute;
+            z-index: 2;
+            bottom: 10px;
+        }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div id="loader">
+        <video id="loaderVideo" autoplay muted loop>
+          <source src="./Animation - 1728832375301.webm" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    <div class="container" id="container">
+        <div class="main">
+            <div class="project"><img class="image" src="../assets/Group 43959.svg" alt="project-logo">PROJECT 3<span></span></div>
+            <div class="divider">
+                <section class="left-section">
+                    <h1>Aakashganga <br> Open Access <br> Journal Publishing</h1>
+                    <div class="client"><img class="image" src="../assets/Group 43958.svg" alt="client-logo">Client: External</div>
+                    <p>Aakashganga is India’s first Open Access Journal Publishing platform which aims to democratize access to academic publishing by offering main services like: Mega Journals, Open access hosting & conference publishing.</p>
+                </section>
+                <section class="right-section">
+                    <video class="video" src="./aakash-mock.mp4" type="video/mp4" width="100%" height="560" loop autoplay muted playsinline>
+                        Sorry, your browser doesn't support HTML5 video tag.
+                    </video>
+                    <div class="client role left"><img class="image" src="../assets/Group 43957.svg" alt="project-logo">My role: UX Designer</div>
+                    <div class="client role right"><img class="image" src="../assets/Group 43956.svg" alt="project-logo">Project type: Branding & UX</div>
+                </section>
+            </div>
+        </div>
+        <br>
+
+        <div>
+            <h2>Project Scope</h2>
+            <div class="design-items">
+                <h3>Branding</h3>
+                <ul class="points">
+                    <li>Creation of logos and banners for the various Shastras (Disciplines).</li>
+                    <li>Development of graphic assets such as infographics to visually communicate complex data.</li>
+                    <li>Production of motion videos to enhance the digital presence of the platform and explain its offerings.</li>        
+                </ul>
+
+                <h3>User Experience (UX)</h3>
+                <ul class="points">
+                    <li>Design of the flow chart to map out user journeys and interactions within the platform.</li>
+                    <li>Development of the landing page, sell pages, and insider pages to ensure a seamless user experience across the platform.</li>        
+                </ul>
+            </div>
+        </div>
+
+        <div class="Statement">
+            <h2>Branding</h2>            
+            <ul class="conclusion">
+                <li>To create an informative, user-friendly platform that educates users on respiratory health and presents the company’s products as solutions for prevention and care, all while catering to Mexico people.</li>
+                <li>Identify user behavior and preferences in interacting with healthcare-related websites.</li>
+            </ul>
+        </div>
+
+        <div class="problem-statement"></div>
+            <div class="Branding">
+                <div class="right">
+                    <div class="video">
+                    <video src="./aakashganga galaxy star.mp4" type="video/mp4" loop autoplay muted playsinline>
+                        Sorry, your browser doesn't support HTML5 video tag.</video>
+                    </div> 
+                    <div class="para">
+                        <ul class="conclusion">
+                            <li>A key design element was the use of a red dot, symbolizing a shooting star in a universe, which strikes over three dots representing Aakashganga.</li>
+                            <li>This metaphorical representation was used as the hero image, signifying the platform’s role in making groundbreaking knowledge accessible like a “shooting star” across the academic universe.</li>
+                        </ul>
+                    </div>   
+                </div> 
+                <div class="left">
+                    <div class="para">
+                        <ul class="conclusion">
+                            <li>The website design also incorporated a modern card structure layout.</li>
+                            <li>This approach brought a fresh, new look and feel to the platform, balancing aesthetics with functionality.</li>
+                        </ul>
+                    </div>
+                    <div class="video">
+                    <img src="./Group 43960.png" alt="scientist">    
+                </div>                  
+            </div>            
+        </div>
+        
+        <div class="info-section">
+            <p>Designed infographics to simplify and visually communicate complex information, making it more accessible to a broader audience.</p>
+            <div class="image-grid">
+                <div class="row">
+                    <div class="border">
+                        <img src="./Screenshot 2024-08-21 at 6.41.51 PM.png" alt="Image 1" class="image-item">
+                    </div>                    
+                </div>
+                <div class="row">
+                    <div class="border aspect">
+                        <img src="./Screenshot 2024-08-21 at 6.47.41 PM.png" alt="Image 2" class="image-item">
+                    </div>
+                    <div class="border">
+                        <img src="./Screenshot 2024-08-21 at 6.45.12 PM.png" alt="Image 3" class="image-item">
+                    </div>                
+                </div>
+            </div>
+        </div>
+
+        <div class="oneNation">
+            <div class="left">
+                <div class="para">
+                    <ul class="conclusion">
+                        <li>Motion videos to simplify and visually communicate complex information</li>
+
+                    </ul>
+                    <video src="./built with love - 1.mp4" type="video/mp4" width="100%" height="100%" loop autoplay muted playsinline>
+                        Sorry, your browser doesn't support HTML5 video tag.
+                    </video>
+                </div>
+                <div class="video">
+                    <img src="./Group 43945.png" alt="oneNation">    
+                </div>                  
+            </div> 
+            <p>Masthead designs of Seven interdisciplinary journals for publishing both local and global research.</p>
+        </div>    
+
+        <div class="problem-statement">
+            <div class="persona">
+                <img src="./Group 43961.png" alt="persona-image">
+            </div>            
+        </div>
+
+        <div class="Statement">
+            <h2>User Experience</h2>            
+            <ul class="conclusion">
+                <li>Designed an intuitive flow chart that mapped out the user journey, ensuring that users could easily navigate the platform, whether they were submitting research, launching a journal, or publishing conference papers.</li>
+            </ul>
+        </div>
+
+        <div class="problem-statement">
+            <h2>Typography</h2>
+            <div class="typography">
+                <img src="./Group 43962.png" alt="Typography-image">
+            </div>            
+        </div>
+
+        <div class="problem-statement">
+            <h2>Colors</h2>
+            <br>
+            <div class="color">
+                <img src="./Group 43942-3.png" alt="Color-image">
+            </div>            
+        </div>
+
+        <div class="problem-statement">
+            <h2>Visual Designs</h2>
+            <div class="visual">
+                <img src="./Mask Group 379.png" alt="visualdesign-image">
+                <div>
+                    <h2>Sell Page</h2>
+                    <video src="./ag_mocup.mp4" type="video/mp4" loop autoplay muted playsinline>
+                        Sorry, your browser doesn't support HTML5 video tag.</video>
+                </div>
+                <img src="./Screenshot 2024-08-22 at 6.12.04 PM.png" alt="visualdesign-image">
+            </div>            
+        </div>
+
+        <div class="chakra-block">
+            <h2>Charakh Shastra Journal Page</h2>
+            <div class="rectangle">
+                <div class="scroll-container">
+                    <img src="./Charakh Shastra.png" alt="Scrolling Image" class="scroll-image">
+                </div>
+            </div>            
+        </div>
+
+
+        <div class="problem-statement">
+            <h2>Faq Page</h2>
+            <div class="taskflow">
+                <video src="./Faq.mp4" type="video/mp4" width="100%" height="100%" loop autoplay muted playsinline>
+                    Sorry, your browser doesn't support HTML5 video tag.
+                </video>
+            </div>            
+        </div>
+
+        <div>
+            <h2>Conclusion:</h2>            
+            <ul class="conclusion">
+                <li>The Aakashganga platform successfully launched, with positive feedback from the academic community. The branding resonated well with the diverse target audience, and the UX design was praised for its clarity and ease of use.</li>
+                <li>This project highlighted the importance of innovative design thinking in creating platforms that not only meet the functional needs of users but also engage them on an emotional level.</li>
+                <li>Check the developed ver through this link: <a href="https://www.aakashgangaopen.in" target="_blank">aakashgangaopen.in</a> </li>
+                <li><strong>P.S.</strong>- Some more changes has been made in the dev version after launching in which UX is not involved.</li>
+            </ul>
+        </div>
+        
+
+        <div class="breaker"></div>
+
+        <div class="thankyou-statement">
+            <div class="thankyou">
+                <h2>Thank you for exploring !</h2>
+                <p>Feel free to check out other case studies</p>
+            </div>
+            
+            <div class="case-studies">
+                <div class="project-svg" onclick="toMoleculeProject()">
+                    <svg id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 316.702 280.263">
+                        <defs>
+                          <filter id="Path_19_1" x="0" y="0" filterUnits="userSpaceOnUse">
+                            <feOffset input="SourceAlpha"/>
+                            <feGaussianBlur class="blur-width" stdDeviation="5.5" result="blur"/>
+                            <feFlood class="flood-color" flood-color="#436EFF7D" flood-opacity="0.89" result="color"/>
+                            <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+                            <feComposite operator="in" in="color"/>
+                            <feComposite operator="in" in2="SourceGraphic"/>
+                          </filter>
+                        </defs>
+                        <g id="Component_14_1" data-name="Component 14 – 1" transform="translate(0.5 0.5)">
+                          <g data-type="innerShadowGroup">
+                            <path id="Path_19-2" data-name="Path 19" d="M29.439,5.155l-.01,0-.01.005A17.979,17.979,0,0,0,23.087,10.7,13.986,13.986,0,0,0,20.5,18.8v124.08c0,62.689.026,94.8.307,111.634.14,8.411.343,13.041.643,15.775a16.265,16.265,0,0,0,.543,2.994,6.357,6.357,0,0,0,.754,1.613h0l.009.015a17.133,17.133,0,0,0,5.774,5.423l.013.007.013.007c.97.509,2.2.85,5.56,1.109s8.977.442,18.777.569c19.609.255,56.082.294,125.186.294,72.313,0,108.733,0,127.542-.261,9.394-.132,14.424-.328,17.343-.626a17.315,17.315,0,0,0,3.16-.547,7.781,7.781,0,0,0,1.709-.756l.024-.013.023-.016a22.431,22.431,0,0,0,6.059-5.92l.015-.024.015-.024a8.875,8.875,0,0,0,.761-1.572,12.54,12.54,0,0,0,.566-2.5,114.421,114.421,0,0,0,.64-12.029c.268-12.683.268-36.79.268-84.3v-.05c0-47.507,0-71.614-.268-84.3a114.457,114.457,0,0,0-.64-12.03,12.533,12.533,0,0,0-.566-2.5,8.827,8.827,0,0,0-.761-1.572l-.015-.024-.015-.023a22.376,22.376,0,0,0-6.059-5.94l-.015-.011-.017-.01a9.368,9.368,0,0,0-3.743-1.311,80.753,80.753,0,0,0-9.72-.665c-9.874-.3-28.168-.377-63.575-.53l-.959,0-73.45-.309L160.036,36.469h0c-7.7-13.12-11.969-20.29-14.831-24.435a27.374,27.374,0,0,0-3.57-4.4,11.946,11.946,0,0,0-3.069-2.091,13.749,13.749,0,0,0-3.628-1.453,39.719,39.719,0,0,0-7.029-.733c-6.876-.3-19.408-.3-44.293-.3h-.081C60.8,3.134,48.2,3.224,40.852,3.5,33.531,3.781,31.3,4.246,29.439,5.155Z" transform="translate(-20.5 -3.056)" fill="none" style="mix-blend-mode: plus-lighter;"/>
+                            <g class="border-effect" transform="matrix(1, 0, 0, 1, -0.5, -0.5)" filter="url(#Path_19_1)">
+                              <path id="Path_19-3" data-name="Path 19" d="M29.439,5.155l-.01,0-.01.005A17.979,17.979,0,0,0,23.087,10.7,13.986,13.986,0,0,0,20.5,18.8v124.08c0,62.689.026,94.8.307,111.634.14,8.411.343,13.041.643,15.775a16.265,16.265,0,0,0,.543,2.994,6.357,6.357,0,0,0,.754,1.613h0l.009.015a17.133,17.133,0,0,0,5.774,5.423l.013.007.013.007c.97.509,2.2.85,5.56,1.109s8.977.442,18.777.569c19.609.255,56.082.294,125.186.294,72.313,0,108.733,0,127.542-.261,9.394-.132,14.424-.328,17.343-.626a17.315,17.315,0,0,0,3.16-.547,7.781,7.781,0,0,0,1.709-.756l.024-.013.023-.016a22.431,22.431,0,0,0,6.059-5.92l.015-.024.015-.024a8.875,8.875,0,0,0,.761-1.572,12.54,12.54,0,0,0,.566-2.5,114.421,114.421,0,0,0,.64-12.029c.268-12.683.268-36.79.268-84.3v-.05c0-47.507,0-71.614-.268-84.3a114.457,114.457,0,0,0-.64-12.03,12.533,12.533,0,0,0-.566-2.5,8.827,8.827,0,0,0-.761-1.572l-.015-.024-.015-.023a22.376,22.376,0,0,0-6.059-5.94l-.015-.011-.017-.01a9.368,9.368,0,0,0-3.743-1.311,80.753,80.753,0,0,0-9.72-.665c-9.874-.3-28.168-.377-63.575-.53l-.959,0-73.45-.309L160.036,36.469h0c-7.7-13.12-11.969-20.29-14.831-24.435a27.374,27.374,0,0,0-3.57-4.4,11.946,11.946,0,0,0-3.069-2.091,13.749,13.749,0,0,0-3.628-1.453,39.719,39.719,0,0,0-7.029-.733c-6.876-.3-19.408-.3-44.293-.3h-.081C60.8,3.134,48.2,3.224,40.852,3.5,33.531,3.781,31.3,4.246,29.439,5.155Z" transform="translate(-20 -2.56)" fill="#fff"/>
+                            </g>
+                            <path id="Path_19-4" data-name="Path 19" d="M29.439,5.155l-.01,0-.01.005A17.979,17.979,0,0,0,23.087,10.7,13.986,13.986,0,0,0,20.5,18.8v124.08c0,62.689.026,94.8.307,111.634.14,8.411.343,13.041.643,15.775a16.265,16.265,0,0,0,.543,2.994,6.357,6.357,0,0,0,.754,1.613h0l.009.015a17.133,17.133,0,0,0,5.774,5.423l.013.007.013.007c.97.509,2.2.85,5.56,1.109s8.977.442,18.777.569c19.609.255,56.082.294,125.186.294,72.313,0,108.733,0,127.542-.261,9.394-.132,14.424-.328,17.343-.626a17.315,17.315,0,0,0,3.16-.547,7.781,7.781,0,0,0,1.709-.756l.024-.013.023-.016a22.431,22.431,0,0,0,6.059-5.92l.015-.024.015-.024a8.875,8.875,0,0,0,.761-1.572,12.54,12.54,0,0,0,.566-2.5,114.421,114.421,0,0,0,.64-12.029c.268-12.683.268-36.79.268-84.3v-.05c0-47.507,0-71.614-.268-84.3a114.457,114.457,0,0,0-.64-12.03,12.533,12.533,0,0,0-.566-2.5,8.827,8.827,0,0,0-.761-1.572l-.015-.024-.015-.023a22.376,22.376,0,0,0-6.059-5.94l-.015-.011-.017-.01a9.368,9.368,0,0,0-3.743-1.311,80.753,80.753,0,0,0-9.72-.665c-9.874-.3-28.168-.377-63.575-.53l-.959,0-73.45-.309L160.036,36.469h0c-7.7-13.12-11.969-20.29-14.831-24.435a27.374,27.374,0,0,0-3.57-4.4,11.946,11.946,0,0,0-3.069-2.091,13.749,13.749,0,0,0-3.628-1.453,39.719,39.719,0,0,0-7.029-.733c-6.876-.3-19.408-.3-44.293-.3h-.081C60.8,3.134,48.2,3.224,40.852,3.5,33.531,3.781,31.3,4.246,29.439,5.155Z" transform="translate(-20.5 -3.056)" fill="none" stroke="#fff" stroke-width="2"/>
+                          </g>
+                        </g>
+                      </svg>
+                      <p class="molocule">Molecules drug design with the help of AI</p>
+                    </div>
+               
+                <div class="project-svg" onclick="toHealthProject()">
+                    <svg id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 316.702 280.263">
+                        <defs>
+                          <filter id="Path_19_2" x="0" y="0" filterUnits="userSpaceOnUse">
+                            <feOffset input="SourceAlpha"/>
+                            <feGaussianBlur class="blur-width" stdDeviation="5.5" result="blur"/>
+                            <feFlood class="flood-color" flood-color="#436EFF7D" flood-opacity="0.89" result="color"/>
+                            <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+                            <feComposite operator="in" in="color"/>
+                            <feComposite operator="in" in2="SourceGraphic"/>
+                          </filter>
+                        </defs>
+                        <g id="Component_14_1" data-name="Component 14 – 1" transform="translate(0.5 0.5)">
+                          <g data-type="innerShadowGroup">
+                            <path id="Path_19-2" data-name="Path 19" d="M29.439,5.155l-.01,0-.01.005A17.979,17.979,0,0,0,23.087,10.7,13.986,13.986,0,0,0,20.5,18.8v124.08c0,62.689.026,94.8.307,111.634.14,8.411.343,13.041.643,15.775a16.265,16.265,0,0,0,.543,2.994,6.357,6.357,0,0,0,.754,1.613h0l.009.015a17.133,17.133,0,0,0,5.774,5.423l.013.007.013.007c.97.509,2.2.85,5.56,1.109s8.977.442,18.777.569c19.609.255,56.082.294,125.186.294,72.313,0,108.733,0,127.542-.261,9.394-.132,14.424-.328,17.343-.626a17.315,17.315,0,0,0,3.16-.547,7.781,7.781,0,0,0,1.709-.756l.024-.013.023-.016a22.431,22.431,0,0,0,6.059-5.92l.015-.024.015-.024a8.875,8.875,0,0,0,.761-1.572,12.54,12.54,0,0,0,.566-2.5,114.421,114.421,0,0,0,.64-12.029c.268-12.683.268-36.79.268-84.3v-.05c0-47.507,0-71.614-.268-84.3a114.457,114.457,0,0,0-.64-12.03,12.533,12.533,0,0,0-.566-2.5,8.827,8.827,0,0,0-.761-1.572l-.015-.024-.015-.023a22.376,22.376,0,0,0-6.059-5.94l-.015-.011-.017-.01a9.368,9.368,0,0,0-3.743-1.311,80.753,80.753,0,0,0-9.72-.665c-9.874-.3-28.168-.377-63.575-.53l-.959,0-73.45-.309L160.036,36.469h0c-7.7-13.12-11.969-20.29-14.831-24.435a27.374,27.374,0,0,0-3.57-4.4,11.946,11.946,0,0,0-3.069-2.091,13.749,13.749,0,0,0-3.628-1.453,39.719,39.719,0,0,0-7.029-.733c-6.876-.3-19.408-.3-44.293-.3h-.081C60.8,3.134,48.2,3.224,40.852,3.5,33.531,3.781,31.3,4.246,29.439,5.155Z" transform="translate(-20.5 -3.056)" fill="none" style="mix-blend-mode: plus-lighter;"/>
+                            <g class="border-effect" transform="matrix(1, 0, 0, 1, -0.5, -0.5)" filter="url(#Path_19_2)">
+                              <path id="Path_19-3" data-name="Path 19" d="M29.439,5.155l-.01,0-.01.005A17.979,17.979,0,0,0,23.087,10.7,13.986,13.986,0,0,0,20.5,18.8v124.08c0,62.689.026,94.8.307,111.634.14,8.411.343,13.041.643,15.775a16.265,16.265,0,0,0,.543,2.994,6.357,6.357,0,0,0,.754,1.613h0l.009.015a17.133,17.133,0,0,0,5.774,5.423l.013.007.013.007c.97.509,2.2.85,5.56,1.109s8.977.442,18.777.569c19.609.255,56.082.294,125.186.294,72.313,0,108.733,0,127.542-.261,9.394-.132,14.424-.328,17.343-.626a17.315,17.315,0,0,0,3.16-.547,7.781,7.781,0,0,0,1.709-.756l.024-.013.023-.016a22.431,22.431,0,0,0,6.059-5.92l.015-.024.015-.024a8.875,8.875,0,0,0,.761-1.572,12.54,12.54,0,0,0,.566-2.5,114.421,114.421,0,0,0,.64-12.029c.268-12.683.268-36.79.268-84.3v-.05c0-47.507,0-71.614-.268-84.3a114.457,114.457,0,0,0-.64-12.03,12.533,12.533,0,0,0-.566-2.5,8.827,8.827,0,0,0-.761-1.572l-.015-.024-.015-.023a22.376,22.376,0,0,0-6.059-5.94l-.015-.011-.017-.01a9.368,9.368,0,0,0-3.743-1.311,80.753,80.753,0,0,0-9.72-.665c-9.874-.3-28.168-.377-63.575-.53l-.959,0-73.45-.309L160.036,36.469h0c-7.7-13.12-11.969-20.29-14.831-24.435a27.374,27.374,0,0,0-3.57-4.4,11.946,11.946,0,0,0-3.069-2.091,13.749,13.749,0,0,0-3.628-1.453,39.719,39.719,0,0,0-7.029-.733c-6.876-.3-19.408-.3-44.293-.3h-.081C60.8,3.134,48.2,3.224,40.852,3.5,33.531,3.781,31.3,4.246,29.439,5.155Z" transform="translate(-20 -2.56)" fill="#fff"/>
+                            </g>
+                            <path id="Path_19-4" data-name="Path 19" d="M29.439,5.155l-.01,0-.01.005A17.979,17.979,0,0,0,23.087,10.7,13.986,13.986,0,0,0,20.5,18.8v124.08c0,62.689.026,94.8.307,111.634.14,8.411.343,13.041.643,15.775a16.265,16.265,0,0,0,.543,2.994,6.357,6.357,0,0,0,.754,1.613h0l.009.015a17.133,17.133,0,0,0,5.774,5.423l.013.007.013.007c.97.509,2.2.85,5.56,1.109s8.977.442,18.777.569c19.609.255,56.082.294,125.186.294,72.313,0,108.733,0,127.542-.261,9.394-.132,14.424-.328,17.343-.626a17.315,17.315,0,0,0,3.16-.547,7.781,7.781,0,0,0,1.709-.756l.024-.013.023-.016a22.431,22.431,0,0,0,6.059-5.92l.015-.024.015-.024a8.875,8.875,0,0,0,.761-1.572,12.54,12.54,0,0,0,.566-2.5,114.421,114.421,0,0,0,.64-12.029c.268-12.683.268-36.79.268-84.3v-.05c0-47.507,0-71.614-.268-84.3a114.457,114.457,0,0,0-.64-12.03,12.533,12.533,0,0,0-.566-2.5,8.827,8.827,0,0,0-.761-1.572l-.015-.024-.015-.023a22.376,22.376,0,0,0-6.059-5.94l-.015-.011-.017-.01a9.368,9.368,0,0,0-3.743-1.311,80.753,80.753,0,0,0-9.72-.665c-9.874-.3-28.168-.377-63.575-.53l-.959,0-73.45-.309L160.036,36.469h0c-7.7-13.12-11.969-20.29-14.831-24.435a27.374,27.374,0,0,0-3.57-4.4,11.946,11.946,0,0,0-3.069-2.091,13.749,13.749,0,0,0-3.628-1.453,39.719,39.719,0,0,0-7.029-.733c-6.876-.3-19.408-.3-44.293-.3h-.081C60.8,3.134,48.2,3.224,40.852,3.5,33.531,3.781,31.3,4.246,29.439,5.155Z" transform="translate(-20.5 -3.056)" fill="none" stroke="#fff" stroke-width="2"/>
+                          </g>
+                        </g>
+                      </svg>
+                      <p>Health Prevention Website</p>
+                    </div>
+            </div>           
+        </div>
+
+        <div class="menu-icon" data-tooltip="Tushar Chawla" onclick="navigateToMain()"><img src="./Component 45 – 1.svg" alt="client-logo"></div>
+
+        <script>
+            const svgElements = document.querySelectorAll('.project-svg');
+
+            svgElements.forEach(function(svgElement) {
+
+                svgElement.addEventListener('mouseenter', function() {
+                    const floodElement = svgElement.querySelector('.flood-color');
+                    const floodBlur = svgElement.querySelector('.blur-width');
+                    floodElement.setAttribute('flood-color', '#1DB4F0');  // Change color on hover
+                    floodBlur.setAttribute('stdDeviation', '15.5');
+                });
+
+                svgElement.addEventListener('mouseleave', function() {
+                    const floodElement = svgElement.querySelector('.flood-color');
+                    const floodBlur = svgElement.querySelector('.blur-width');
+                    floodElement.setAttribute('flood-color', '#436EFF7D');  // Revert back to the original color
+                    floodBlur.setAttribute('stdDeviation', '5.5');
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+            // Wait until all images and other assets are fully loaded
+            window.addEventListener('load', function() {
+                // Hide the loader
+                const loader = document.getElementById('loader');
+                loader.style.display = 'none';
+
+                // Show the main content
+                const mainContent = document.getElementById('container');
+                if (mainContent) {
+                    mainContent.classList.add('loaded');
+                } else {
+                    console.error("Main content element not found.");
+                }
+            });
+            });
+
+            function toMoleculeProject(){
+            window.location.href="./molecule.htm";
+            }
+
+            function toHealthProject(){
+            window.location.href="./health.htm";
+            }
+
+            function navigateToMain(){
+                window.location.href="../index.html";
+            }
+        </script>
+
+</body>
+</html>
