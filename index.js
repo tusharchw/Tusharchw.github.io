@@ -17,3 +17,6 @@ function linkedinClick(){
 function mediumClick(){
     window.open("https://medium.com/@tusharchw");
 }
+
+const video = document.getElementById('background-video');
+video.play();
